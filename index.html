@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Journal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Travel Journal</h1>
+
+
+    <div id="autenticacao">
+
+        <h2 id="tituloAuth">Entrar</h2>
+
+        <div class="erro" id="erroAuth"></div>
+
+        <input
+            type="text"
+            id="nomeCadastro"
+            placeholder="Nome"
+            style="display: none"
+        >
+
+        <input
+            type="email"
+            id="emailAuth"
+            placeholder="Email"
+        >
+
+        <input
+            type="password"
+            id="senhaAuth"
+            placeholder="Senha"
+        >
+
+        <button id="btnAuth">Entrar</button>
+
+        <p id="linkAlternar">Não tem conta? Cadastre-se</p>
+
+    </div>
+
+
+    <div id="app">
+
+        <div id="topo">
+
+            <span id="nomeUsuario"></span>
+
+            <div class="acoes">
+
+                <button class="btn btn-roxo" id="btnPerfil">
+                    Meu perfil
+                </button>
+
+                <button class="btn btn-rosa" id="btnNovaViagem">
+                    + Nova viagem
+                </button>
+
+                <button class="btn btn-sair" id="btnSair">
+                    Sair
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="busca-area">
+
+            <input
+                type="text"
+                id="busca"
+                placeholder="Pesquisar por título, cidade ou país"
+            >
+
+            <select id="filtroStatus">
+
+                <option value="">Todos os status</option>
+
+                <option value="planejada">
+                    Planejada
+                </option>
+
+                <option value="em_andamento">
+                    Em andamento
+                </option>
+
+                <option value="concluida">
+                    Concluída
+                </option>
+
+            </select>
+
+            <button class="btn btn-roxo" id="btnBuscar">
+                Buscar
+            </button>
+
+        </div>
+
+
+        <div id="listaViagens"></div>
+
+    </div>
+
+
+    <div id="detalhesViagem">
+
+        <span class="fechar" id="fecharDetalhes">
+            &times;
+        </span>
+
+        <h2 id="detalheTitulo"></h2>
+
+        <p id="detalheLocal"></p>
+
+        <p id="detalheDatas"></p>
+
+        <p id="detalheCusto"></p>
+
+        <p id="detalheAvaliacao"></p>
+
+        <p id="detalheStatus"></p>
+
+        <p id="detalheDescricao"></p>
+
+
+        <div class="galeria" id="galeriaFotos"></div>
+
+
+        <input
+            type="file"
+            id="inputFotos"
+            accept="image/*"
+            multiple
+        >
+
+        <button class="btn btn-roxo" id="btnAdicionarFotos">
+            Adicionar fotos
+        </button>
+
+
+        <br>
+        <br>
+
+
+        <button class="btn btn-roxo" id="btnEditarViagem">
+            Editar viagem
+        </button>
+
+        <button class="btn btn-rosa" id="btnExcluirViagem">
+            Excluir viagem
+        </button>
+
+    </div>
+
+
+    <div id="modalViagem" class="modal">
+
+        <div class="modal-content">
+
+            <span class="fechar" id="fecharModalViagem">
+                &times;
+            </span>
+
+            <h2 id="tituloModalViagem">
+                Nova viagem
+            </h2>
+
+
+            <form id="formViagem">
+
+                <input type="hidden" id="viagemId">
+
+                <input
+                    type="text"
+                    id="titulo"
+                    placeholder="Título da viagem"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="pais"
+                    placeholder="País"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="cidade"
+                    placeholder="Cidade"
+                    required
+                >
+
+                <textarea
+                    id="descricao"
+                    placeholder="Descrição"
+                ></textarea>
+
+
+                <label>Data de início</label>
+
+                <input
+                    type="date"
+                    id="dataInicio"
+                    required
+                >
+
+
+                <label>Data de fim</label>
+
+                <input
+                    type="date"
+                    id="dataFim"
+                    required
+                >
+
+
+                <input
+                    type="number"
+                    id="custo"
+                    step="0.01"
+                    placeholder="Custo estimado (R$)"
+                >
+
+                <input
+                    type="number"
+                    id="avaliacao"
+                    min="1"
+                    max="5"
+                    placeholder="Avaliação (1 a 5)"
+                >
+
+
+                <select id="status">
+
+                    <option value="planejada">
+                        Planejada
+                    </option>
+
+                    <option value="em_andamento">
+                        Em andamento
+                    </option>
+
+                    <option value="concluida">
+                        Concluída
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Salvar viagem
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <div id="modalPerfil" class="modal">
+
+        <div class="modal-content">
+
+            <span class="fechar" id="fecharModalPerfil">
+                &times;
+            </span>
+
+            <h2>Meu perfil</h2>
+
+
+            <form id="formPerfil">
+
+                <input
+                    type="text"
+                    id="perfilNome"
+                    placeholder="Nome"
+                >
+
+                <input
+                    type="email"
+                    id="perfilEmail"
+                    placeholder="Email"
+                >
+
+                <button type="submit">
+                    Salvar alterações
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

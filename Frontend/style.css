@@ -1,0 +1,352 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #f6f4fb;
+    color: #2b2b33;
+    font-family: "Poppins", sans-serif;
+}
+
+
+h1 {
+    text-align: center;
+    padding: 30px 20px 10px;
+    color: #6c3ce9;
+}
+
+
+h2 {
+    margin-bottom: 15px;
+    color: #6c3ce9;
+}
+
+
+button {
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+
+
+#autenticacao {
+    max-width: 380px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(108, 60, 233, 0.12);
+}
+
+
+#autenticacao input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #e0dff0;
+    border-radius: 8px;
+}
+
+
+#autenticacao button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #6c3ce9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+
+#autenticacao button:hover {
+    background: #5a2ed1;
+}
+
+
+#linkAlternar {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #ff5da2;
+    cursor: pointer;
+}
+
+
+.erro {
+    color: #c0392b;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    display: none;
+}
+
+
+#app {
+    display: none;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+
+#topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+#topo span {
+    font-weight: 600;
+    color: #6c3ce9;
+}
+
+
+#topo .acoes {
+    display: flex;
+    gap: 10px;
+}
+
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+
+.btn-roxo {
+    background: #6c3ce9;
+    color: white;
+}
+
+
+.btn-roxo:hover {
+    background: #5a2ed1;
+}
+
+
+.btn-rosa {
+    background: #ff5da2;
+    color: white;
+}
+
+
+.btn-rosa:hover {
+    background: #e8408c;
+}
+
+
+.btn-sair {
+    background: transparent;
+    color: #6c3ce9;
+    border: 1px solid #6c3ce9;
+}
+
+
+#busca-area {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+
+#busca-area input,
+#busca-area select {
+    padding: 10px;
+    border: 1px solid #e0dff0;
+    border-radius: 8px;
+}
+
+
+#busca {
+    flex: 1;
+    min-width: 200px;
+}
+
+
+#listaViagens {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+
+.viagem {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(108, 60, 233, 0.1);
+    transition: transform 0.2s ease;
+}
+
+
+.viagem:hover {
+    transform: translateY(-5px);
+}
+
+
+.viagem img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: #eee;
+}
+
+
+.viagem-body {
+    padding: 14px;
+}
+
+
+.viagem-body h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+
+.viagem-local {
+    font-size: 0.8rem;
+    color: #ff5da2;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+
+.viagem-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    background: #f1eaff;
+    color: #6c3ce9;
+    margin-bottom: 10px;
+}
+
+
+.viagem-body button {
+    width: 100%;
+    padding: 9px;
+    background: rgba(108, 60, 233, 0.1);
+    color: #6c3ce9;
+    border: 1px solid rgba(108, 60, 233, 0.25);
+    border-radius: 8px;
+}
+
+
+.viagem-body button:hover {
+    background: #6c3ce9;
+    color: white;
+}
+
+
+#detalhesViagem {
+    display: none;
+    max-width: 600px;
+    margin: 20px auto 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(108, 60, 233, 0.12);
+}
+
+
+#detalhesViagem p {
+    margin-bottom: 6px;
+    color: #6b6b76;
+}
+
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+
+.galeria img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(43, 43, 51, 0.5);
+}
+
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 420px;
+    margin: 6% auto;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+
+.fechar {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #6b6b76;
+}
+
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #e0dff0;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+}
+
+
+form textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+
+form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #6c3ce9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+
+form button:hover {
+    background: #5a2ed1;
+}
+
+
