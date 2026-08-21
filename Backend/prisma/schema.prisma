@@ -1,73 +1,44 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
-
 
 datasource db {
-    provider = "sqlite"
-    url = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
-
 
 model usuarios {
-    id Int @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
+  nome       String
+  email      String   @unique
+  senha      String
+  fotoPerfil String?
+  criadoEm   DateTime @default(now())
 
-    nome String
-
-    email String @unique
-
-    senha String
-
-    fotoPerfil String?
-
-    criadoEm DateTime @default(now())
-
-    viagens viagens[]
+  viagens viagens[]
 }
-
 
 model viagens {
-    id Int @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
+  titulo     String
+  pais       String
+  cidade     String
+  descricao  String?
+  dataInicio DateTime
+  dataFim    DateTime
+  custo      Float?
+  avaliacao  Int?
+  status     String   @default("planejada")
+  usuarioId  Int
 
-    titulo String
-
-    pais String
-
-    cidade String
-
-    descricao String?
-
-    dataInicio DateTime
-
-    dataFim DateTime
-
-    custo Float?
-
-    avaliacao Int?
-
-    status String @default("planejada")
-
-    usuarioId Int
-
-    usuario usuarios @relation(
-        fields: [usuarioId],
-        references: [id]
-    )
-
-    fotos fotos[]
+  usuario usuarios @relation(fields: [usuarioId], references: [id])
+  fotos   fotos[]
 }
 
-
 model fotos {
-    id Int @id @default(autoincrement())
+  id       Int      @id @default(autoincrement())
+  imagem   String
+  viagemId Int
 
-    imagem String
-
-    viagemId Int
-
-    viagem viagens @relation(
-        fields: [viagemId],
-        references: [id],
-        onDelete: Cascade
-    )
+  viagem viagens @relation(fields: [viagemId], references: [id], onDelete: Cascade)
 }
